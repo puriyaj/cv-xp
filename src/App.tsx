@@ -9,7 +9,8 @@ import { SkillsWindow } from './cmp/SkillsWindow';
 import { ContactWindow } from './cmp/ContactWindow';
 import { ErrorDialog } from './cmp/ErrorDialog';
 import { StartMenu } from './cmp/StartMenu';
-import { ErrorDialog } from './cmp/ErrorDialog';
+import { DesktopIcon } from './cmp/DesktopIcon';
+
 const WINDOWS_CONFIG = [
   { id:"about",    title:"About Me — Alex Rivera",    icon:"👨‍💻", defaultPos:{ top:40,  left:60  }, defaultSize:{ width:520, height:380 }, content:"about" },
   { id:"projects", title:"My Projects",               icon:"📁", defaultPos:{ top:80,  left:200 }, defaultSize:{ width:560, height:380 }, content:"projects" },
@@ -81,7 +82,7 @@ function App() {
           { icon:"📧", label:"Contact",        id:"contact" },
           { icon:"🗑️", label:"Recycle Bin",   id:null },
         ].map((ic) => (
-          <DesktopIcon key={ic.label} icon={ic.icon} label={ic.label} onDblClick={() => ic.id && openWindow(ic.id)} />
+          <DesktopIcon key={ic.label} icon={ic.icon} label={ic.label} onDoubleClick={() => ic.id && openWindow(ic.id)} />
         ))}
       </div>
 
