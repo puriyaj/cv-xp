@@ -10,15 +10,28 @@ import { ContactWindow } from './cmp/ContactWindow';
 import { ErrorDialog } from './cmp/ErrorDialog';
 import { StartMenu } from './cmp/StartMenu';
 import { DesktopIcon } from './cmp/DesktopIcon';
-
+const RIGHT_ITEMS = [
+            { icon: "🖥️", label: "My Computer" },
+            { icon: "📂", label: "My Documents" },
+            { icon: "🌐", label: "My Network" },
+            { icon: "🗑️", label: "Recycle Bin" },
+            { icon: "⚙️", label: "Control Panel" },
+            { icon: "🖨️", label: "Printers" },
+          ]
+const LEFT_PRIMARY_ITEMS = [
+            { icon: "🌐", label: "Internet Explorer" , onClick: () => {}},
+            { icon: "📧", label: "Outlook Express", onClick: () => {} },
+            { icon: "📁", label: "My Projects", onClick: () => {} },
+            { icon: "📄", label: "Resume.doc", onClick: () => {} },
+          ]
 const WINDOWS_CONFIG = [
-  { id:"about",    title:"About Me — Alex Rivera",    icon:"👨‍💻", defaultPos:{ top:40,  left:60  }, defaultSize:{ width:520, height:380 }, content:"about" },
+  { id:"about",    title:"About Me — Pouria Jangjooymehrangiz",    icon:"👨‍💻", defaultPos:{ top:40,  left:60  }, defaultSize:{ width:520, height:380 }, content:"about" },
   { id:"projects", title:"My Projects",               icon:"📁", defaultPos:{ top:80,  left:200 }, defaultSize:{ width:560, height:380 }, content:"projects" },
   { id:"skills",   title:"Skills & Technologies",     icon:"⭐", defaultPos:{ top:120, left:320 }, defaultSize:{ width:500, height:340 }, content:"skills" },
   { id:"contact",  title:"Contact — New Message",     icon:"📧", defaultPos:{ top:60,  left:480 }, defaultSize:{ width:420, height:380 }, content:"contact" },
 ];
 function App() {
- const [openWindows, setOpenWindows] = useState(["about"]);
+  const [openWindows, setOpenWindows] = useState(["about"]);
   const [minimized, setMinimized]     = useState([]);
   const [zOrder, setZOrder]           = useState(["about"]);
   const [startOpen, setStartOpen]     = useState(false);
@@ -75,7 +88,7 @@ function App() {
       <div className="absolute top-6 left-6 flex flex-col gap-6">
         {[
           { icon:"🖥️", label:"My Computer",   id:null },
-          { icon:"📂", label:"My Documents",  id:null },
+        
           { icon:"👨‍💻", label:"About Me",       id:"about" },
           { icon:"📁", label:"Projects",       id:"projects" },
           { icon:"⭐", label:"My Skills",      id:"skills" },
@@ -105,7 +118,7 @@ function App() {
             }}
             onClick={() => focusWindow(cfg.id)}
           >
-            {cfg.content === "about"    && <AboutWindow />}
+            {cfg.content === "about"    && <AboutWindow onContactClick={openWindow}  />}
             {cfg.content === "projects" && <ProjectsWindow />}
             {cfg.content === "skills"   && <SkillsWindow />}
             {cfg.content === "contact"  && <ContactWindow onError={() => setShowError(true)} />}
@@ -118,7 +131,7 @@ function App() {
 
       {/* Start Menu */}
       {startOpen && (
-        <StartMenu onClose={() => setStartOpen(false)} onOpen={handleStartMenuOpen} />
+        <StartMenu rightItems={RIGHT_ITEMS} leftPrimaryItems={LEFT_PRIMARY_ITEMS} onClose={() => setStartOpen(false)} onOpen={handleStartMenuOpen} />
       )}
 
       {/* Taskbar */}

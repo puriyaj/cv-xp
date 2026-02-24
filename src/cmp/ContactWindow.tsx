@@ -113,10 +113,24 @@ export function ContactWindow({
       <hr className="my-3 border-gray-300" />
 
       <div className="text-xs text-gray-600 flex flex-col gap-1">
-        <span>🐙 github.com/alexrivera</span>
-        <span>💼 linkedin.com/in/alexrivera</span>
-        <span>🐦 @alex_builds</span>
-        <span>📍 San Francisco, CA (Remote OK)</span>
+         <a
+    href="https://github.com/puriyaj"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:underline hover:text-[#316ac5]"
+  >
+    🐙 github.com/puriyaj
+  </a>
+
+  <a
+    href="https://www.linkedin.com/in/puriya-jangjooymehrangiz"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:underline hover:text-[#316ac5]"
+  >
+    💼 linkedin.com/in/puriya-jangjooymehrangiz
+  </a>
+        <span>📍 Berlin, germany (Remote OK)</span>
       </div>
     </div>
   );

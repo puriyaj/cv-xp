@@ -1,6 +1,13 @@
-import { XPButton } from "../cmp/XPButton";
+import { XPButton } from "./XPButton";
+import { XP } from "../theme/xp.theme";
 
-export function AboutWindow() {
+type WindowId = "skills" | "projects" | "contact";
+
+type AboutWindowProps = {
+  onContactClick: (id: WindowId) => void;
+};
+
+export function AboutWindow({ onContactClick }: AboutWindowProps) {
   return (
     <div
       className="flex h-full"
@@ -9,11 +16,7 @@ export function AboutWindow() {
       {/* Sidebar */}
       <div
         className="flex flex-col items-center p-4 gap-3"
-        style={{
-          background:
-            "linear-gradient(180deg,#7ba7e7 0%,#3d6bc9 100%)",
-          width: 130,
-        }}
+        style={{ background: XP.blueSidebar, width: 130 }}
       >
         <div className="w-20 h-20 rounded-full border-4 border-white/60 bg-white flex items-center justify-center text-5xl mt-2">
           👨‍💻
@@ -23,12 +26,39 @@ export function AboutWindow() {
           className="text-white text-xs font-bold text-center"
           style={{ textShadow: "1px 1px 1px #000" }}
         >
-          Alex Rivera
+          Pouria Jangjooymehrangiz
         </p>
 
-        <p className="text-blue-200 text-[10px] text-center">
-          Staff Engineer
+        <p className="text-blue-200 text-xs text-center">
+          Senior Software Engineer
         </p>
+
+        <div className="mt-2 w-full ">
+    
+            <div
+           
+              className="text-blue-200 flex flex-col items-left gap-2 text-xs py-0.5 px-2  "
+            >
+                 <a
+    href="https://github.com/puriyaj"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:underline hover:text-white"
+  >
+    🐙 github
+  </a>
+
+  <a
+    href="https://www.linkedin.com/in/puriya-jangjooymehrangiz"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:underline hover:text-white"
+  >
+    💼 linkedin
+  </a>
+            </div>
+
+        </div>
       </div>
 
       {/* Content */}
@@ -38,11 +68,53 @@ export function AboutWindow() {
         </h2>
 
         <p className="text-xs text-gray-700 mb-3 leading-relaxed">
-          I'm a <strong>Software Engineer</strong> building
-          high-scale distributed systems and developer tools.
+          I'm a <strong>Software Engineer</strong> with 6+ years building
+          high-scale distributed systems, beautiful UIs, and developer tools.
+          I specialize in TypeScript, distributed systems, and AI-powered tools.
         </p>
 
-        <XPButton>📧 Contact Me</XPButton>
+        {/* Quick Facts */}
+        <div
+          style={{
+            border: "1px solid #aca899",
+            borderRadius: 3,
+            padding: "6px 10px",
+            background: "#f0ede0",
+            marginBottom: 10,
+          }}
+        >
+          <p className="text-xs font-bold text-gray-700 mb-1">
+            📋 Quick Facts
+          </p>
+
+          {[
+            ["💼", "Senior Software Engineer"],
+            ["📍", "Berlin / Remote"],
+            ["⭐", "TypeScript, Next, React"],
+            ["🤖", "Interested in AI Systems"],
+            ["🌐", "Open to exciting opportunities"],
+          ].map(([ico, txt]) => (
+            <div
+              key={txt}
+              className="flex items-center gap-2 text-xs py-0.5 text-gray-700"
+            >
+              <span>{ico}</span>
+              <span>{txt}</span>
+            </div>
+          ))}
+        </div>
+<div className="flex gap-4">
+  <XPButton onClick={() => onContactClick('skills')}>
+          ⭐ Skills
+        </XPButton>
+  <XPButton onClick={() => onContactClick('projects')}>
+          📁 Projects
+        </XPButton>
+<XPButton onClick={() => onContactClick('contact')}>
+          📧 Contact Me
+        </XPButton>
+</div>
+        
       </div>
     </div>
   );

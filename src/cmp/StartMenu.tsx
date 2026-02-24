@@ -55,7 +55,7 @@ export const StartMenu = forwardRef<HTMLDivElement, StartMenuProps>(
         <div className="flex w-full mt-[54px]">
           {/* LEFT PANEL */}
           <div className="flex-1 bg-white py-2">
-            {leftPrimaryItems.map((item) => (
+            {leftPrimaryItems?.map((item) => (
               <div
                 key={item.label}
                 className="flex items-center gap-3 px-3 py-2 hover:bg-[#316ac5] hover:text-white cursor-default"
