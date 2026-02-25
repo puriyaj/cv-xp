@@ -16,11 +16,10 @@ export function AboutWindow({ onContactClick }: AboutWindowProps) {
       {/* Sidebar */}
       <div
         className="flex flex-col items-center p-4 gap-3"
-        style={{ background: XP.blueSidebar, width: 130 }}
+        style={{ background: XP.blueSidebar, width: 150 }}
       >
-        <div className="w-20 h-20 rounded-full border-4 border-white/60 bg-white flex items-center justify-center text-5xl mt-2">
-          👨‍💻
-        </div>
+        <img className="w-30 h-30 rounded-full  flex items-center justify-center text-5xl mt-2" src="/src/assets/profile.jpg" alt="Profile Picture"/>
+          
 
         <p
           className="text-white text-xs font-bold text-center"
@@ -90,7 +89,6 @@ export function AboutWindow({ onContactClick }: AboutWindowProps) {
           {[
             ["💼", "Senior Software Engineer"],
             ["📍", "Berlin / Remote"],
-            ["⭐", "TypeScript, Next, React"],
             ["🤖", "Interested in AI Systems"],
             ["🌐", "Open to exciting opportunities"],
           ].map(([ico, txt]) => (

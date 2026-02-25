@@ -41,9 +41,9 @@ export const StartMenu = forwardRef<HTMLDivElement, StartMenuProps>(
             height: 54,
           }}
         >
-          <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-2xl border-2 border-white/50">
-            {userAvatar}
-          </div>
+          <img src="/src/assets/profile.jpg" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-2xl border-2 border-white/50"/>
+            
+          
           <span
             className="text-white font-bold text-sm"
             style={{ textShadow: "1px 1px 2px #0000aa" }}

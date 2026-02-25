@@ -12,8 +12,7 @@ export function SkillsWindow() {
   const skills: SkillMap = {
     "💻 Languages": [
       "TypeScript",
-      "Rust",
-      "Go",
+      "JavaScript",
       "Python",
       "SQL",
       "C++",
@@ -21,21 +20,22 @@ export function SkillsWindow() {
     "⚛ Frontend": [
       "React",
       "Next.js",
-      "Svelte",
-      "WebGL",
+      "Tailwind CSS",
+      "Redux",
+      "React Query",
       "CSS",
     ],
     "🖥️ Backend": [
       "Node.js",
       "PostgreSQL",
-      "Redis",
+      "Rest APIs",
       "GraphQL",
     ],
     "☁️ Infra": [
       "AWS",
       "Docker",
       "Kubernetes",
-      "Terraform",
+      "Vercel",
     ],
   };
 

@@ -6,6 +6,8 @@ import type { ResizeDirection } from "../types/window.types";
 interface DragResizeOptions {
   initialWidth: number;
   initialHeight: number;
+  initialX: number;
+  initialY: number;
   minWidth: number;
   minHeight: number;
 }

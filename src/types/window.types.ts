@@ -26,6 +26,7 @@ export interface WindowProps {
   icon?: ReactNode;
   children?: ReactNode;
   onClose?: () => void;
+  onClick?: () => void;
   onMinimize?: () => void;
   theme?: WindowTheme;
   width?: number;
