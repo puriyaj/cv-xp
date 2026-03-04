@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect } from "react";
 import type { WindowProps, ResizeDirection } from "../types/window.types";
 import { useDragResize } from "../hooks/useDragResize";
 import { defaultWindowTheme } from "../theme/window.theme";
@@ -29,7 +29,9 @@ export const Window = forwardRef<HTMLDivElement, WindowProps>(
       style && "left" in style ? (style.left as number) : 0;
     const initialY =
       style && "top" in style ? (style.top as number) : 0;
-
+useEffect(() => {
+  console.log("Initial position:", { initialX, initialY });
+}, [initialX, initialY]); // Ensure effect runs if initial position changes
     const { pos, size, startDrag, startResize } = useDragResize({
       initialWidth: width,
       initialHeight: height,

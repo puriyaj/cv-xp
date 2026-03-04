@@ -26,9 +26,11 @@ export function useDragResize({
   initialWidth,
   initialHeight,
   minWidth,
+  initialX,
+  initialY,
   minHeight,
 }: DragResizeOptions) {
-  const [pos, setPos] = useState<Position>({ x: 0, y: 0 });
+  const [pos, setPos] = useState<Position>({ x: initialX, y: initialY });
   const [size, setSize] = useState<Size>({
     width: initialWidth,
     height: initialHeight,

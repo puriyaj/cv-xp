@@ -187,10 +187,14 @@ function App(): JSX.Element {
         const z = zOrder.indexOf(cfg.id) + 10;
 
         return (
-          <Window
+          <Wi
+          
+          ndow
             key={cfg.id}
             title={cfg.title}
             icon={cfg.icon}
+            width={cfg.defaultSize.width}
+  height={cfg.defaultSize.height}
             onClose={() => closeWindow(cfg.id)}
             onMinimize={() => minimizeWindow(cfg.id)}
             style={{
