@@ -46,7 +46,7 @@ export const DesktopIcon = forwardRef<HTMLDivElement, DesktopIconProps>(
 
     const handleDoubleClick = (e: MouseEvent<HTMLDivElement>) => {
       onDoubleClick?.();
-      rest.onDoubleClick?.(e);
+      rest.onClick?.(e);
     };
 
     return (

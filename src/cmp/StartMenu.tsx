@@ -6,7 +6,6 @@ export const StartMenu = forwardRef<HTMLDivElement, StartMenuProps>(
   (
     {
       userName,
-      userAvatar = "👨‍💻",
       leftPrimaryItems,
       leftSecondaryItems = [],
       rightItems,

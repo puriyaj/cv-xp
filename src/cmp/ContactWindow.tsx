@@ -19,7 +19,7 @@ interface FormState {
 
 export function ContactWindow({ onError }: ContactWindowProps) {
   const [sent, setSent] = useState(false);
-  const [sending, setSending] = useState(false);
+
 
   const [form, setForm] = useState<FormState>({
     name: "",
@@ -33,7 +33,7 @@ export function ContactWindow({ onError }: ContactWindowProps) {
   }
 
   async function handleSend() {
-    setSending(true);
+
     try {
       await emailjs.send(
         EMAILJS_SERVICE_ID,
@@ -52,7 +52,7 @@ export function ContactWindow({ onError }: ContactWindowProps) {
       console.error("EmailJS error:", err);
       onError();
     } finally {
-      setSending(false);
+     
     }
   }
 
