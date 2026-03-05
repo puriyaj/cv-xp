@@ -1,5 +1,10 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { XPButton } from "../cmp/XPButton";
+
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 interface ContactWindowProps {
   onError: () => void;
@@ -12,10 +17,9 @@ interface FormState {
   message: string;
 }
 
-export function ContactWindow({
-  onError,
-}: ContactWindowProps) {
+export function ContactWindow({ onError }: ContactWindowProps) {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
 
   const [form, setForm] = useState<FormState>({
     name: "",
@@ -24,21 +28,32 @@ export function ContactWindow({
     message: "",
   });
 
-  function updateField(
-    field: keyof FormState,
-    value: string
-  ) {
-    setForm((prev) => ({
-      ...prev,
-      [field]: value,
-    }));
+  function updateField(field: keyof FormState, value: string) {
+    setForm((prev) => ({ ...prev, [field]: value }));
   }
 
-  function handleSend() {
-    setSent(true);
-
-    // XP joke dialog trigger
-    onError();
+  async function handleSend() {
+    setSending(true);
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          from_email: form.email,
+          subject: form.subject,
+          message: form.message,
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      setSent(true);
+      
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      onError();
+    } finally {
+      setSending(false);
+    }
   }
 
   return (

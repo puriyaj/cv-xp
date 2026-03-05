@@ -9,6 +9,8 @@ import { ContactWindow } from "./cmp/ContactWindow";
 import { ErrorDialog } from "./cmp/ErrorDialog";
 import { StartMenu } from "./cmp/StartMenu";
 import { DesktopIcon } from "./cmp/DesktopIcon";
+import type { ErrorDialogTheme } from "./types/ErrorDialog.types";
+import type { StartMenuTheme } from "./types/StartMenu.types";
 
 /* =========================
    Types
@@ -95,7 +97,17 @@ const WINDOWS_CONFIG: WindowConfig[] = [
 /* =========================
    Component
 ========================= */
-
+export const xpErrorDialogTheme: ErrorDialogTheme = {
+  windowBg: XP.windowBg,
+  titleGradient: XP.titleActive,
+  border: XP.border,
+  closeGradient: XP.btnClose,
+};
+export const xpStartMenuTheme: StartMenuTheme = {
+  border: XP.border,
+  headerGradient: XP.taskbar,
+  sidebarGradient: XP.blueSidebar,
+};
 function App(): JSX.Element {
   const [openWindows, setOpenWindows] = useState<WindowId[]>(["about"]);
   const [minimized, setMinimized] = useState<WindowId[]>([]);
@@ -187,9 +199,9 @@ function App(): JSX.Element {
         const z = zOrder.indexOf(cfg.id) + 10;
 
         return (
-          <Wi
+          <Window
           
-          ndow
+       
             key={cfg.id}
             title={cfg.title}
             icon={cfg.icon}
@@ -217,7 +229,7 @@ function App(): JSX.Element {
       })}
 
       {/* Error Dialog */}
-      {showError && <ErrorDialog onClose={() => setShowError(false)} />}
+      {showError && <ErrorDialog theme={xpErrorDialogTheme} message="An error occurred." onClose={() => setShowError(false)} />}
 
       {/* Start Menu */}
       {startOpen && (
@@ -225,7 +237,8 @@ function App(): JSX.Element {
           rightItems={RIGHT_ITEMS}
           leftPrimaryItems={LEFT_PRIMARY_ITEMS}
           onClose={() => setStartOpen(false)}
-          onOpen={handleStartMenuOpen}
+         userName="Pouria Jangjooymehrangiz"
+         theme={xpStartMenuTheme}
         />
       )}
 
