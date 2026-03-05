@@ -239,6 +239,7 @@ function App(): JSX.Element {
           onClose={() => setStartOpen(false)}
          userName="Pouria Jangjooymehrangiz"
          theme={xpStartMenuTheme}
+         onClick={(label) => handleStartMenuOpen(label)}
         />
       )}
 

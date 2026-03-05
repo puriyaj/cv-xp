@@ -12,11 +12,13 @@ export const StartMenu = forwardRef<HTMLDivElement, StartMenuProps>(
       rightItems,
       onClose,
       theme = defaultStartMenuTheme,
+      onClick
     },
     ref
   ) => {
-    const handleClick = (cb?: () => void) => {
+    const handleClick = (label: string,cb?: () => void) => {
       cb?.();
+      onClick?.(label);
       onClose();
     };
 
@@ -59,7 +61,7 @@ export const StartMenu = forwardRef<HTMLDivElement, StartMenuProps>(
               <div
                 key={item.label}
                 className="flex items-center gap-3 px-3 py-2 hover:bg-[#316ac5] hover:text-white cursor-default"
-                onClick={() => handleClick(item.onClick)}
+                onClick={() => handleClick(item.label, item.onClick)}
               >
                 <span className="text-xl">{item.icon}</span>
                 <span className="text-xs font-bold">
@@ -75,7 +77,7 @@ export const StartMenu = forwardRef<HTMLDivElement, StartMenuProps>(
                   <div
                     key={item.label}
                     className="flex items-center gap-3 px-3 py-2 hover:bg-[#316ac5] hover:text-white cursor-default"
-                    onClick={() => handleClick(item.onClick)}
+                   onClick={() => handleClick(item.label, item.onClick)}
                   >
                     <span className="text-xl">{item.icon}</span>
                     <span className="text-xs">
@@ -103,7 +105,7 @@ export const StartMenu = forwardRef<HTMLDivElement, StartMenuProps>(
               <div
                 key={item.label}
                 className="flex items-center gap-2 px-3 py-1.5 hover:bg-white/20 cursor-default"
-                onClick={() => handleClick(item.onClick)}
+                onClick={() => handleClick(item.label, item.onClick)}
               >
                 <span className="text-base">{item.icon}</span>
                 <span

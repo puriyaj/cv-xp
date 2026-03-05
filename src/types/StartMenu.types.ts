@@ -20,4 +20,5 @@ export interface StartMenuProps {
   rightItems: StartMenuItem[];
   onClose: () => void;
   theme: StartMenuTheme;
+  onClick?: (label: string) => void;
 }
