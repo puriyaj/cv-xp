@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import type { StartMenuProps } from "../types/StartMenu.types";
 import { defaultStartMenuTheme } from "../theme/startMenu.theme";
-
+import profilePic from '../assets/profile.jpg'
 export const StartMenu = forwardRef<HTMLDivElement, StartMenuProps>(
   (
     {
@@ -42,7 +42,7 @@ export const StartMenu = forwardRef<HTMLDivElement, StartMenuProps>(
             height: 54,
           }}
         >
-          <img src="/src/assets/profile.jpg" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-2xl border-2 border-white/50"/>
+          <img src={profilePic} className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-2xl border-2 border-white/50"/>
             
           
           <span

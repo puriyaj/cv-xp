@@ -1,6 +1,6 @@
 import { XPButton } from "./XPButton";
 import { XP } from "../theme/xp.theme";
-
+import profilePic from '/src/assets/profile.jpg'
 type WindowId = "skills" | "projects" | "contact";
 
 type AboutWindowProps = {
@@ -18,7 +18,7 @@ export function AboutWindow({ onContactClick }: AboutWindowProps) {
         className="flex flex-col items-center p-4 gap-3"
         style={{ background: XP.blueSidebar, width: 150 }}
       >
-        <img className="w-30 h-30 rounded-full  flex items-center justify-center text-5xl mt-2" src="/src/assets/profile.jpg" alt="Profile Picture"/>
+        <img className="w-30 h-30 rounded-full  flex items-center justify-center text-5xl mt-2" src={profilePic}  alt="Profile Picture"/>
           
 
         <p
