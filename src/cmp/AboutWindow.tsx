@@ -1,6 +1,7 @@
 import { XPButton } from "./XPButton";
 import { XP } from "../theme/xp.theme";
 import profilePic from '/src/assets/profile.jpg'
+
 type WindowId = "skills" | "projects" | "contact";
 
 type AboutWindowProps = {
@@ -18,8 +19,7 @@ export function AboutWindow({ onContactClick }: AboutWindowProps) {
         className="flex flex-col items-center p-4 gap-3"
         style={{ background: XP.blueSidebar, width: 150 }}
       >
-        <img className="w-30 h-30 rounded-full  flex items-center justify-center text-5xl mt-2" src={profilePic}  alt="Profile Picture"/>
-          
+        <img className="w-30 h-30 rounded-full flex items-center justify-center text-5xl mt-2" src={profilePic} alt="Profile Picture" />
 
         <p
           className="text-white text-xs font-bold text-center"
@@ -32,31 +32,25 @@ export function AboutWindow({ onContactClick }: AboutWindowProps) {
           Senior Software Engineer
         </p>
 
-        <div className="mt-2 w-full ">
-    
-            <div
-           
-              className="text-blue-200 flex flex-col items-left gap-2 text-xs py-0.5 px-2  "
+        <div className="mt-2 w-full">
+          <div className="text-blue-200 flex flex-col items-left gap-2 text-xs py-0.5 px-2">
+            <a
+              href="https://github.com/puriyaj"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline hover:text-white"
             >
-                 <a
-    href="https://github.com/puriyaj"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="hover:underline hover:text-white"
-  >
-    🐙 github
-  </a>
-
-  <a
-    href="https://www.linkedin.com/in/puriya-jangjooymehrangiz"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="hover:underline hover:text-white"
-  >
-    💼 linkedin
-  </a>
-            </div>
-
+              🐙 github
+            </a>
+            <a
+              href="https://www.linkedin.com/in/puriya-jangjooymehrangiz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline hover:text-white"
+            >
+              💼 linkedin
+            </a>
+          </div>
         </div>
       </div>
 
@@ -101,18 +95,19 @@ export function AboutWindow({ onContactClick }: AboutWindowProps) {
             </div>
           ))}
         </div>
-<div className="flex gap-4">
-  <XPButton onClick={() => onContactClick('skills')}>
-          ⭐ Skills
-        </XPButton>
-  <XPButton onClick={() => onContactClick('projects')}>
-          📁 Projects
-        </XPButton>
-<XPButton onClick={() => onContactClick('contact')}>
-          📧 Contact Me
-        </XPButton>
-</div>
-        
+
+        {/* Hidden on mobile — use the bottom nav instead */}
+        <div className="hidden sm:flex gap-4">
+          <XPButton onClick={() => onContactClick('skills')}>
+            ⭐ Skills
+          </XPButton>
+          <XPButton onClick={() => onContactClick('projects')}>
+            📁 Projects
+          </XPButton>
+          <XPButton onClick={() => onContactClick('contact')}>
+            📧 Contact Me
+          </XPButton>
+        </div>
       </div>
     </div>
   );

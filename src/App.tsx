@@ -154,7 +154,10 @@ function MobileSheet({ cfg, onClose, showError, openWindow }: MobileSheetProps) 
     <div
       style={{
         position: "fixed",
-        inset: 0,
+        top: 36,
+        left: 0,
+        right: 0,
+        bottom: 56,
         zIndex: 200,
         display: "flex",
         flexDirection: "column",
@@ -169,7 +172,7 @@ function MobileSheet({ cfg, onClose, showError, openWindow }: MobileSheetProps) 
           borderRadius: "16px 16px 0 0",
           border: `2px solid ${XP.border}`,
           borderBottom: "none",
-          maxHeight: "82dvh",
+          maxHeight: "100%",
           display: "flex",
           flexDirection: "column",
           overflow: "hidden",
