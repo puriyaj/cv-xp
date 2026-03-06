@@ -4,18 +4,20 @@ type SkillCategory =
   | "💻 Languages"
   | "⚛ Frontend"
   | "🖥️ Backend"
-  | "☁️ Infra";
+  | "☁️ Infra" |  "🧪 Testing" | "🔐 Security"
 
 type SkillMap = Record<SkillCategory, string[]>;
 
 export function SkillsWindow() {
-  const skills: SkillMap = {
+const skills: SkillMap = {
     "💻 Languages": [
       "TypeScript",
       "JavaScript",
       "Python",
       "SQL",
       "C++",
+      "HTML",
+      "SCSS",
     ],
     "⚛ Frontend": [
       "React",
@@ -36,6 +38,19 @@ export function SkillsWindow() {
       "Docker",
       "Kubernetes",
       "Vercel",
+      "GitHub",
+      "CI/CD",
+      "Webpack",
+    ],
+    "🧪 Testing": [
+      "Jest",
+      "Cypress",
+      "Selenium",
+    ],
+    "🔐 Security": [
+      "OAuth2",
+      "OWASP",
+      "2-way TLS",
     ],
   };
 
