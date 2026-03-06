@@ -25,6 +25,7 @@ const skills: SkillMap = {
       "Tailwind CSS",
       "Redux",
       "React Query",
+      "Material UI",
       "CSS",
     ],
     "🖥️ Backend": [
